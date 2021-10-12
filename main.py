@@ -10,7 +10,7 @@ from multiprocessing.pool import ThreadPool
 nlp = spacy.load('en_core_web_sm')
 
 # Link to Wikidata SPARQL endpoint
-wikidataSPARQL="http://node3.research.tib.eu:4010/sparql" 
+wikidataSPARQL="https://query.wikidata.org/sparql"
 
 stopWordsList=wiki_stopwords.getStopWords()
 comparsion_words=wiki_stopwords.getComparisonWords()
@@ -300,10 +300,17 @@ def mix_list_items_entities(mixedEntities,k):
     entities=[]
     for raw in mixedEntities:
         if any(entity[3]>0 for entity in raw):
-            for entity in sorted(raw , key=lambda x: (-x[3],-x[2],int(x[1][x[1].rfind("/")+2:-1])))[:k]:
-                entities.append(entity)
+            # for entity in sorted(raw , key=lambda x: (-x[3],-x[2],x[1][x[1].rfind("/")+1:]))[:k]:
+            #     entities.append(entity)
+
+            # Take all top rated if exact match exists, else take top k
+            entities_sorted = sorted(raw , key=lambda x: (-x[3],-x[2],x[1][x[1].rfind("/")+1:]))
+            score = entities_sorted[0][2]
+            multiplier = entities_sorted[0][3]
+            top_entities = [x for x in entities_sorted if x[2] == score and x[3] == multiplier]
+            entities.extend(top_entities)
         else:
-            raw= sorted(raw, key = lambda x: (-x[2],int(x[1][x[1].rfind("/")+2:-1])))
+            raw= sorted(raw, key = lambda x: (-x[2],x[1][x[1].rfind("/")+1:]))
             for entity in raw[:k]:
                 entities.append(entity)         
     return entities
@@ -350,7 +357,7 @@ def process_text_E_R(question,rules,k=1):
     raw=evaluate([question],rules,evaluation=False)
     question=question.replace("?","")
     question=question.strip()
-    print(raw)
+    # print(raw)
     entities=raw[2]
     relations=raw[1]
     return entities,relations
@@ -527,7 +534,7 @@ def evaluate(raw,rules,evaluation=True):
         global wrongEntities
         #wrongEntities=0
         global count
-        print(count)
+        # print(count)
         p_entity=0
         r_entity=0
         p_relation=0
@@ -613,9 +620,9 @@ def evaluate(raw,rules,evaluation=True):
         nationalityFlag=False
         for term in combinations:
             entities_term=[]
-            if len(term)==0:
+            if len(term)==0 or len(term) < 3:
                 continue
-    
+
             if check_entities_in_text(originalQuestion,term):
                 term=term.capitalize()
             
@@ -696,7 +703,8 @@ def evaluate(raw,rules,evaluation=True):
         count=count+1
         ############        
         raw.append([[tup[1],tup[4]] for tup in mixedRelations])        
-        raw.append([[tup[1],tup[4]] for tup in entities])
+        # raw.append([[tup[1],tup[4]] for tup in entities])
+        raw.append(entities)
         raw.append(p_entity)
         raw.append(r_entity)
         raw.append(p_relation)
@@ -744,7 +752,7 @@ def datasets_evaluate():
         for question in questions[:]:
             try:
                 single_result=evaluate(question)
-                print(count)
+                # print(count)
                 count=count+1
                 print( "#####" + str((correctRelations * 100) / (correctRelations + wrongRelations)))
                 print("#####" + str((correctEntities * 100) / (correctEntities + wrongEntities)))
@@ -767,12 +775,23 @@ def datasets_evaluate():
     print((correctEntities*100)/(correctEntities+wrongEntities))
     print(correctEntities+wrongEntities)
 
+def search_props_and_entities(q):
+    global count
+    count = 0
+    global threading
+    threading = False
+    # rules = [1, 2, 3, 4, 5, 8, 9, 10, 12, 13, 14]
+    rules = [1, 2, 5, 8, 9, 10, 12, 13, 14]
+    ans = process_text_E_R(q, rules)
+    return ans
+
 
 if __name__ == '__main__':
-    global count
-    count=0
-    global threading
-    threading=False
-    rules = [1,2,3,4,5,8,9,10,12,13,14]
-    process_text_E_R('Who is the wife of barack obama?',rules)
+    # global count
+    # count=0
+    # global threading
+    # threading=False
+    # rules = [1,2,3,4,5,8,9,10,12,13,14]
+    # process_text_E_R('Who is the wife of barack obama?',rules)
+    search_props_and_entities('Who is the wife of barack obama?')
 

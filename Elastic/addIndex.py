@@ -11,7 +11,7 @@ from multiprocessing.pool import ThreadPool
 
 docType = "doc"
 # by default we connect to localhost:9200
-es = Elasticsearch(['https://5e9acbee.ngrok.io/'])
+es = Elasticsearch(['http://geo-qa.cs.upb.de:9200/'])
 path_to_data = '/app/'
 # path_to_data = '../'
 
@@ -22,8 +22,8 @@ def addToIndexThread(line):
     except:
         print ("error")
         return 'error'
-    
-    
+
+
 
 def addToIndex(uri,label):
     try:
@@ -41,8 +41,8 @@ def propertyIndexAdd():
         pool = ThreadPool(10)
         pool.map(addToIndexThread, lines)
         pool.close()
-        pool.join()        
-    
+        pool.join()
+
 def entitiesIndexAdd():
     global indexName
     indexName = "wikidataentityindex"
@@ -52,7 +52,7 @@ def entitiesIndexAdd():
         pool.map(addToIndexThread, lines)
         pool.close()
         pool.join()
-    
+
 
 #if __name__ == '__main__':
     #classesIndexAdd()

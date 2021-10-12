@@ -1,0 +1,3077 @@
+{
+  "dataset": {
+    "id": "quantDataset_756"
+  },
+  "questions": [
+    {
+      "id": "756",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Are there any driving schools in Blumenthal?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1114209> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/DrivingSchool> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "758",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the bakeries in Findorff."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126105> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Bakery> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2763115641"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node851030420"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way430870491"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1568517026"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295582058"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1996756983"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1920412234"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way321564262"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way373751784"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "764",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many castles does Bremen have?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT (COUNT(?target) AS ?count) WHERE { <http://linkedgeodata.org/triplify/relation62718> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Castle> . ?tGeom geo:asWKT ?tWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "3"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "766",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many kindergartens are there in Schönebeck?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT (count(?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation1112324> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Kindergarten> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "1"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "768",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "List the pharmacies in Burglesum."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1086527> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Pharmacy> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node294725972"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node835786202"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4126774998"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node292381850"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3085342538"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295080752"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node298165531"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node298165536"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node583309199"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "770",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Friedehorst bus stop located in Losum?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1112215> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/node2904805463> <http://www.opengis.net/ont/geosparql#hasGeometry> ?targetGeom . ?targetGeom geo:asWKT ?targetWKT . BIND(geof:sfContains(?aWKT,?targetWKT) AS ?contains) FILTER (?contains) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "772",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Weserhäuser part of Überseestadt?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1114270> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way515838313> <http://www.opengis.net/ont/geosparql#hasGeometry> ?targetGeom . ?targetGeom geo:asWKT ?targetWKT . BIND(geof:sfContains(?aWKT,?targetWKT) AS ?contains) FILTER (?contains) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "774",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which restaurants are in Gröpelingen?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1125640> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Restaurant> . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825213664"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way570773014"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node252993546"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5761998007"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node659955302"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825527565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node664693371"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825271158"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825222024"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825492310"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "776",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many churches does Vegesack have?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT (DISTINCT ?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation1100344> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/BuildingChurch> . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "6"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "786",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many playgrounds are adjacent to a school?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?a) as ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Playground> ; geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/School> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?aWKT, ?tWKT) AS ?touches) FILTER ( ?touches ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "17"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "788",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Does the district Hemelingen border Obervieland?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK { <http://linkedgeodata.org/triplify/relation1128466> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/relation1137744> geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "790",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which park borders Muhles Park?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target { <http://linkedgeodata.org/triplify/way167637877> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way167637880"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "792",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which canals of Findorff border Schwachhausen?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT distinct ?target WHERE { <http://linkedgeodata.org/triplify/relation1130741> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Ditch> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1126105> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND (geof:sfContains(?bWKT, ?tWKT) as ?contains) BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches && ?contains && !sameTerm(?bWKT,?tWKT)) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way229565750"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way227222779"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "802",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which administrative boundaries border Woltmershausen and Neustadt?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> #Which administrative boundaries border Woltmershausen and Neustadt? SELECT DISTINCT ?target { <http://linkedgeodata.org/triplify/relation1136070> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/AdministrativeBoundary> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1136702> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND ( geof:sfTouches(?aWKT, ?tWKT) as ?touches1) BIND ( geof:sfTouches(?bWKT, ?tWKT) as ?touches2) FILTER (?touches1 && ?touches2) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1137601"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way70576514"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1137602"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943368"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943540"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1114270"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135976"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135977"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135978"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "806",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the highest church in Bremen?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BuildingChurch> . ?target <http://linkedgeodata.org/ontology/height> ?h . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation62718> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?h) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way180846761"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "808",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the bicycle parking in Mitte with highest capacity."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BicycleParking> . ?target <http://linkedgeodata.org/capacity> ?c . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1127350> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?c) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1141391798"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "810",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the largest bicycle parking in Horn-Lehe?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BicycleParking> . ?target <http://linkedgeodata.org/capacity> ?h . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128667> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?h) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way230597256"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "812",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the smallest stadium in Peterswerder?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stadium> . ?target <http://linkedgeodata.org/capacity> ?c . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128426> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY ASC (?c) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way232445088"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "814",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the widest footpath in Altstadt?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Footway> . ?target <http://linkedgeodata.org/ontology/width> ?w . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1127349> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?w) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way305925972"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "820",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which suburbs have more than 30000 population?"
+        }
+      ],
+      "query": {
+        "sparql": "SELECT DISTINCT ?a WHERE { ?a a <http://linkedgeodata.org/ontology/Suburb> ; <http://linkedgeodata.org/population> ?population FILTER ( ?population > 30000 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2147118476"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253042643"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253042610"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node60453604"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node26735307"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node26739851"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node169639811"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253045601"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "822",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many cycling paths have more than 4m width?"
+        }
+      ],
+      "query": {
+        "sparql": "SELECT (COUNT(DISTINCT ?a) as ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Cycleway> ; <http://linkedgeodata.org/ontology/width> ?w . FILTER (?w > 4) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "2"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "824",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which apartment blocks have more than 50m height?"
+        }
+      ],
+      "query": {
+        "sparql": "SELECT DISTINCT ?a WHERE { ?a a <http://linkedgeodata.org/ontology/ApartmentBuilding> ; <http://linkedgeodata.org/ontology/height> ?h . FILTER (?h > 50) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way155251676>"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way89995724>"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way23588199>"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "826",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the closest cafe from Nelson Mandela Park?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?f WHERE { <http://linkedgeodata.org/triplify/way369157724> geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?f a <http://linkedgeodata.org/ontology/Cafe> ; geo:hasGeometry ?fGeom . ?fGeom geo:asWKT ?fWKT BIND(geof:distance(?cWKT, ?fWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?fWKT, ?cWKT) ) FILTER ( ?distance < 1500 ) } ORDER BY (?distance) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way373751685"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "828",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which stream passes through Jedutenberg and borders Stadtwald Ahnthammsmoor?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stream> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1140666> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way169460956> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) BIND(geof:sfTouches(?tWKT, ?bWKT) AS ?touches) FILTER ( ?crosses && ?touches) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way204782278"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "830",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which parkings within 2 km of Hohentor have capacity more than 500?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/node26739831> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Parking> . ?target <http://linkedgeodata.org/capacity> ?cap . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT)) FILTER ( ?distance < 2000 ) FILTER ( ?cap > 500 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way226308168"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23189841"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way226307824"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way67447534"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way33645355"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23189819"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197097002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "834",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the cafes within 500 meters of Martinistraße bus stop."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?f WHERE { <http://linkedgeodata.org/triplify/node2073742751> geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?f geo:hasGeometry ?fGeom ; a <http://linkedgeodata.org/ontology/Cafe> . ?fGeom geo:asWKT ?fWKT . BIND(geof:distance(?cWKT, ?fWKT, uom:metre) AS ?distance) FILTER ( ! sameTerm(?fWKT, ?cWKT) ) FILTER ( ?distance < 500 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1637892551"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node718963549"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233653"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4457440087"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1751658719"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5091566565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534773"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way374869047"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534777"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2121370051"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node699745139"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4344101264"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6590939585"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node410456715"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2467927693"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node287963386"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2621251955"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node699745133"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233648"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2741023476"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1758660497"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node612106994"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1759426452"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node458473002"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4440627425"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node410449765"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node412299688"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node576515274"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3820185057"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5118564397"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node767285163"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3281269054"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "836",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which ATMs are close to Dom-Museum?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/node828163472> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Atm> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT,?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY (?distance)"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2142764228"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4627358788"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node576510508"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172680184"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2283633912"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3916325102"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node571268989"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172680187"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582613"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534779"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5695526298"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172693921"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2752194415"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2464556903"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6426665285"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3185144511"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582611"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6188040644"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233705"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295276006"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5209373383"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node571268986"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582507"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2178907363"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2178907360"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2286232985"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2213489580"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2401681927"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node667676694"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node708921439"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3772681617"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "838",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Is there any bicycle parking in a range of 200 m from Knochenhauerstraße?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way493713773> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/BicycleParking> . ?tGeom geo:asWKT ?tWKT . BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT,?tWKT) ) FILTER ( ?distance < 200 ) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "840",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many Supermarkets are less than 500 meters from Theatergarten?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(?target) AS ?cnt) WHERE { <http://linkedgeodata.org/triplify/node1758684431> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Supermarket> . ?tGeom geo:asWKT ?tWKT . BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "5"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "842",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the closest bus stop to Mozartstraße?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way308668376> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/BusStop> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY ASC(?distance) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node319576625"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "844",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "List the forests near Woltmershausen."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> #List the forests near Woltmershausen. SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1136072> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Forest> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY ASC(?target)"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197309302"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950497"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197517192"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950500"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way34561550"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way199424202"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950503"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way199424204"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950491"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950492"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way186651714"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way287276794"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "846",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the airports at most 15 km from Golf-Club Oberneuland."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way27556946> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Airport> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 15000 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way127836738"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "848",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "List the canals that cross Blockland."
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126018> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Canal> . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( !sameTerm(?aWKT,?tWKT) ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way148909652"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way15512617"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way157405729"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way148909656"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565579"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way170109151"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way295935332"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565576"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way106619536"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation272130"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way112367457"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895040"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895041"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895042"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4275586"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23443063"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way16777474"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way37428099"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565865"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way73299131"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565868"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way16777476"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way126148458"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way362576281"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565580"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913278"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way127686072"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way24721911"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way61556173"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way138982871"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation6726723"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4045566"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way301065678"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way193102499"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation7366560"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way301065675"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way172454700"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913280"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140290"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way167051221"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913282"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way167051220"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140292"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913281"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way486511771"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913284"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913283"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270565871"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way94472055"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way187913285"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23565675"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way128246693"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way142493052"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429193"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429194"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429195"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429196"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429197"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429198"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429199"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way170109152"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way230518694"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way127012167"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140286"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way142493051"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140287"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140288"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way513140289"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation3809233"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way128246681"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way134217580"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way217038841"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way217038844"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270566747"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way270566748"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way179969970"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation3895699"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation2709319"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way709501562"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way180109103"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way180109104"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way709501563"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation2709320"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way36131351"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way208920135"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way287799480"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way287799481"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69347566"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69347567"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way201702978"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation272216"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation5394504"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way171166500"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way71501035"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895037"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69421632"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895038"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way512895039"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4448548"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way32796172"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation3817060"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way19803199"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way293249647"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way256761917"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4290303"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429200"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429201"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way256761920"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way700429202"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way293249646"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4281706"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way287203210"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way171763628"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way382361559"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4775879"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way295935327"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way672959064"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way293442082"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation3896838"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way172454693"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way172454696"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way302307715"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way302307718"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way372792458"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23323035"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way372792459"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way170399261"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "850",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which parks does the Ihle stream cross?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation4006535> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way358860138"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way301416779"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way450214511"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "852",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many forests does Hollerfleet cross?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation3809232> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Forest> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "4"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "854",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which bridges cross Habenhauser Landwehr stream?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way221543559> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Path> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way202315995"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way59209062"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way376296526"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way376296525"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "856",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Lockstromleitung pass through any park?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way274867842> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "858",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many farmlands does Arberger Kanal cross?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?target) AS ?count) WHERE { <http://linkedgeodata.org/triplify/relation3091224> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Farmland> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfCrosses(?aWKT, ?tWKT) as ?crosses) FILTER (?crosses) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "6"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "860",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Delmestraße cross Pappelstraße?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way369444221> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way444754426> geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfCrosses(?aWKT, ?tWKT) as ?crosses) FILTER (?crosses) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "864",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which administrative boundaries border Findorff?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126105> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/AdministrativeBoundary> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?aWKT, ?tWKT) AS ?touches) FILTER ( ?touches ) FILTER ( !sameTerm(?aWKT, ?tWKT) ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1126018"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1128669"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130739"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1128667"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1127348"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943368"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130808"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way70864561"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way70864565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way324212617"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way142810170"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69347565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1945178"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943520"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1127350"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130741"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way71040966"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130743"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1945182"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way72484170"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130801"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135978"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "866",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Bürgerhain forest adjacent to a park?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way205637330> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?tWKT, ?aWKT) AS ?touches) FILTER ( ?touches ) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": true
+        }
+      ]
+    },
+    {
+      "id": "868",
+      "answertype": "resource",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the biggest stadium in Peterswerder?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stadium> ; <http://linkedgeodata.org/capacity> ?h ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128426> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) } ORDER BY DESC(?h) LIMIT 1"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4290397"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "870",
+      "answertype": "number",
+      "aggregation": true,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "How many parkings have greater than 1000 capacity?"
+        }
+      ],
+      "query": {
+        "sparql": "SELECT (COUNT(DISTINCT ?a) AS ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Parking> ; <http://linkedgeodata.org/capacity> ?c FILTER ( ?c > 1000 ) }"
+      },
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "5"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "882",
+      "answertype": "boolean",
+      "aggregation": false,
+      "onlydbo": false,
+      "hybrid": false,
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Burglesum have a stadium?"
+        }
+      ],
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1086527> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Stadium> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) }"
+      },
+      "answers": [
+        {
+          "head": {},
+          "results": {},
+          "boolean": false
+        }
+      ]
+    }
+  ]
+}
