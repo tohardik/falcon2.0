@@ -6,7 +6,7 @@ from customizations.extensions import process_input
 
 app = Flask(__name__)
 
-LOG = logging.getLogger("app.py")
+LOG = logging.getLogger("linking_app.py")
 
 
 @app.route('/')
