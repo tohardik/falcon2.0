@@ -25,9 +25,9 @@ def process_input(question):
     linked_entities = [LinkedCandidate.from_value_array(x) for x in entities]
 
     # mark start and end of search term in the question
-    linked_classes = [mark_start_end_index(question, x) for x in linked_classes]
-    linked_relations = [mark_start_end_index(question, x) for x in linked_relations]
-    linked_entities = [mark_start_end_index(question, x) for x in linked_entities]
+    linked_classes = [mark_start_end_index(question, x) for x in linked_classes if x.levensteinDistance < 4]
+    linked_relations = [mark_start_end_index(question, x) for x in linked_relations if x.levensteinDistance < 4]
+    linked_entities = [mark_start_end_index(question, x) for x in linked_entities if x.levensteinDistance < 4]
 
     # add types for entities
     entity_uris = [x.uri for x in linked_entities]
