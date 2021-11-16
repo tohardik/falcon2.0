@@ -14,7 +14,7 @@ def home():
     return jsonify({"status": 200})
 
 
-@app.route('/perform-linking', methods=["POST", "GET"])
+@app.route('/link', methods=["POST", "GET"])
 def linking():
     if request.method == "POST":
         input_text = request.form.get('input_text')
@@ -32,4 +32,4 @@ def linking():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=9092)

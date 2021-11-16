@@ -39,15 +39,15 @@ class LinkedCandidate:
 
 
 class LinkingResponse:
-    def __init__(self, input_text, linkedClasses, linkedRelations, linkedEntities):
-        self.input_text = input_text
+    def __init__(self, inputText, linkedClasses, linkedRelations, linkedEntities):
+        self.inputText = inputText
         self.linkedClasses = linkedClasses
         self.linkedRelations = linkedRelations
         self.linkedEntities = linkedEntities
 
     def to_dict(self):
         return {
-            "input_text": self.input_text,
+            "inputText": self.inputText,
             "linkedClasses": [x.to_dict() for x in self.linkedClasses],
             "linkedRelations": [x.to_dict() for x in self.linkedRelations],
             "linkedEntities": [x.to_dict() for x in self.linkedEntities]

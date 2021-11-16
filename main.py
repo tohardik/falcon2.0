@@ -586,11 +586,14 @@ def evaluate(raw,rules,evaluation=True):
                 if term[0].istitle():
                     continue;
     
-                propertyResults=wiki_search_elastic.propertySearch(term)
-        
-                if len(propertyResults) == 0:  
-                    combinations[idx]=term.capitalize()
-                    question=question.replace(term,term.capitalize())
+                # propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
+                propertyResults = []
+
+                # Commented to prevent caputalization
+                # e.g. Show me the cafes in Blumenthal => Show me the Cafes in Blumenthal
+                # if len(propertyResults) == 0:
+                #     combinations[idx]=term.capitalize()
+                #     question=question.replace(term,term.capitalize())
 
             if any(x==3 for x in rules): 
                 combinations=sort_combinations(combinations,question) 
@@ -641,7 +644,8 @@ def evaluate(raw,rules,evaluation=True):
                 
         for term in combinations_relations:
             properties=[]
-            propertyResults=wiki_search_elastic.propertySearch(term)
+            # propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
+            propertyResults = []
             if len(propertyResults)!=0:
                     propertyResults=[result+[term] for result in propertyResults]
                     properties=properties+propertyResults

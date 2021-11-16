@@ -12,7 +12,7 @@ from customizations.model.core import LinkingResponse
 from customizations.sparql.query_helper import get_rdf_types
 
 nlp = spacy.load('en_core_web_sm')
-es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:8200/'])
+es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:9200/'])
 
 
 def process_input(question):

@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 import editdistance
 
-es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:8200/'])
+es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:9200/'])
 entity_index_name = "geoqa-entity"
 
 
