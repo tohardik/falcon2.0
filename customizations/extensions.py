@@ -64,7 +64,7 @@ def process_text_C(question):
             search_candidates.append(term.lemma_)
             search_candidates.append(doc[term.i - 1].text + " " + term.lemma_)
             original_terms[term.lemma_] = term.text
-            original_terms[doc[term.i - 1:term.i + 1].lemma_] = doc[term.i - 1:term.i + 1].text
+            original_terms[doc[term.i - 1].text + " " + term.lemma_] = doc[term.i - 1:term.i + 1].text
 
     for search_term in search_candidates:
         search_results = classSearch(search_term)
