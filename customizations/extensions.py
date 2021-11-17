@@ -19,6 +19,10 @@ def process_input(question):
     classes = process_text_C(question)
     entities, relations = search_props_and_entities(question)
 
+    # set searchTerm as originalTerm for entities
+    for e in entities:
+        e.append(e[4])
+
     # enrich
     linked_classes = [LinkedCandidate.from_value_array(x) for x in classes]
     linked_relations = [LinkedCandidate.from_value_array(x) for x in relations]
@@ -40,11 +44,11 @@ def process_input(question):
 
 
 def mark_start_end_index(question: str, linked_candidate: LinkedCandidate):
-    search_term_index = [m.start() for m in re.finditer(linked_candidate.searchTerm, question)]
-    if len(search_term_index) == 0:
-        search_term_index = [m.start() for m in re.finditer(linked_candidate.searchTerm, question, re.IGNORECASE)]
+    term_index = [m.start() for m in re.finditer(linked_candidate.originalTerm, question)]
+    if len(term_index) == 0:
+        term_index = [m.start() for m in re.finditer(linked_candidate.originalTerm, question, re.IGNORECASE)]
 
-    linked_candidate.startIndex = search_term_index
+    linked_candidate.startIndex = term_index
     return linked_candidate
 
 
@@ -54,14 +58,19 @@ def process_text_C(question):
     results = []
 
     search_candidates = []
+    original_terms = {}
     for term in doc:
         if term.pos_ == "NOUN":
             search_candidates.append(term.lemma_)
             search_candidates.append(doc[term.i - 1].text + " " + term.lemma_)
+            original_terms[term.lemma_] = term.text
+            original_terms[doc[term.i - 1:term.i + 1].lemma_] = doc[term.i - 1:term.i + 1].text
 
     for search_term in search_candidates:
         search_results = classSearch(search_term)
         if len(search_results) > 0:
+            for sr in search_results:
+                sr.append(original_terms.get(search_term))
             results.extend(search_results)
 
     results = sorted(results, key=lambda x: (x[1], -x[3], -x[2]))

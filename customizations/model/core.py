@@ -2,7 +2,7 @@ import editdistance
 
 
 class LinkedCandidate:
-    def __init__(self, uri, label, searchTerm, esScore, multiplier, levensteinDistance, types=[]):
+    def __init__(self, uri, label, searchTerm, esScore, multiplier, levensteinDistance, originalTerm, types=[]):
         self.uri = uri
         self.label = label
         self.searchTerm = searchTerm
@@ -12,11 +12,12 @@ class LinkedCandidate:
         self.types = types
         self.startIndex = []
         self.endIndex = []
+        self.originalTerm = originalTerm
 
     @classmethod
-    def from_value_array(self, x):
+    def from_value_array(cls, x):
         return LinkedCandidate(x[1], x[0], x[4], x[2], x[3],
-                               editdistance.eval(x[4], x[0]))
+                               editdistance.eval(x[4], x[0]), x[5])
 
     def __str__(self) -> str:
         return f"(uri={self.uri} , label={self.label})"
@@ -29,6 +30,7 @@ class LinkedCandidate:
             "uri": self.uri,
             "label": self.label,
             "searchTerm": self.searchTerm,
+            "originalTerm": self.originalTerm,
             "esScore": self.esScore,
             "multiplier": self.multiplier,
             "levensteinDistance": self.levensteinDistance,

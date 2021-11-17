@@ -613,7 +613,7 @@ def evaluate(raw,rules,evaluation=True):
         if any(x==14 for x in rules):
             combinations,combinations_relations=get_relations_seachindex(combinations,combinations_relations) #rule 14
         
-        combinations=upper_all_entities(combinations,originalQuestion)
+        combinations=upper_all_entities(combinations,originalQuestion) # todo verify this as this alters the search text
 
         if any(x==12 for x in rules):
             combinations=merge_comb_det(combinations,originalQuestion) #rule 12: Merge the determiner in the combination, if preceding an entity
