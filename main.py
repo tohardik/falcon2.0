@@ -801,8 +801,8 @@ def search_props_and_entities(q):
     count = 0
     global threading
     threading = False
-    rules = [1, 2, 3, 4, 5, 8, 9, 10, 12, 13, 14]
-    # rules = [1, 2, 5, 8, 9, 10, 12, 13, 14]
+    # rules = [1, 2, 3, 4, 5, 8, 9, 10, 12, 13, 14]
+    rules = [1, 2, 5, 8, 9, 10, 12, 13, 14]
     ans = process_text_E_R(q, rules)
     return ans
 
