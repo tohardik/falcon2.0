@@ -5,7 +5,7 @@ import editdistance
 import spacy
 from elasticsearch import Elasticsearch
 
-from customizations.constants import CLASS_INDEX
+from customizations.constants import CLASS_INDEX, RELATION_INDEX
 from main import search_props_and_entities
 from customizations.model.core import LinkedCandidate
 from customizations.model.core import LinkingResponse
@@ -18,8 +18,9 @@ es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:9200/'])
 def process_input(question):
     classes = process_text_C(question)
     entities, relations = search_props_and_entities(question)
+    relations = process_text_R(question)
 
-    # set searchTerm as originalTerm for entities
+    # set searchTerm as originalTerm for entities and relations
     for e in entities:
         e.append(e[4])
 
@@ -27,6 +28,14 @@ def process_input(question):
     linked_classes = [LinkedCandidate.from_value_array(x) for x in classes]
     linked_relations = [LinkedCandidate.from_value_array(x) for x in relations]
     linked_entities = [LinkedCandidate.from_value_array(x) for x in entities]
+
+    # Remove relations for which the search term has already given a class link
+    class_search_terms = []
+    for class_link in linked_classes:
+        split = class_link.searchTerm.split(" ")
+        class_search_terms.extend(split)
+    linked_relations = [relation_link for relation_link in linked_relations if
+                        relation_link.searchTerm not in class_search_terms]
 
     # mark start and end of search term in the question
     linked_classes = [mark_start_end_index(question, x) for x in linked_classes if x.levensteinDistance < 4]
@@ -81,10 +90,42 @@ def process_text_C(question):
     return results
 
 
+def process_text_R(question):
+    doc = nlp(question)
+    results = []
+
+    search_candidates = []
+    for term in doc:
+        if term.tag_ == "NN" and len(term.text) > 3:
+            search_candidates.append(term.text)
+
+    for search_term in search_candidates:
+        search_results = relationSearch(search_term)
+        if len(search_results) > 0:
+            for sr in search_results:
+                sr.append(search_term)
+            results.extend(search_results)
+
+    results = sorted(results, key=lambda x: (x[1], -x[3], -x[2]))
+    seen = set()
+    results = [x for x in results if x[1] not in seen and not seen.add(x[1])]
+    results = sorted(results, key=lambda x: (-x[3], -x[2], x[1]))  # NOTE Enhancement
+
+    return results
+
+
 def classSearch(search_term):
+    return indexSearch(search_term, CLASS_INDEX)
+
+
+def relationSearch(search_term):
+    return indexSearch(search_term, RELATION_INDEX)
+
+
+def indexSearch(search_term, index):
     results = []
     ###################################################
-    elasticResults = es.search(index=CLASS_INDEX, body={
+    elasticResults = es.search(index=index, body={
         "query": {
             "match": {"label": search_term}
         }
@@ -100,7 +141,7 @@ def classSearch(search_term):
                 [result["_source"]["label"], result["_source"]["uri"], result["_score"] * 40, 0, search_term])
 
     ###################################################
-    elasticResults = es.search(index=CLASS_INDEX, body={
+    elasticResults = es.search(index=index, body={
         "query": {
             "match": {
                 "label": {

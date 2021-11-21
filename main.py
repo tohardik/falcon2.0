@@ -205,72 +205,74 @@ def get_question_word_type(questionWord):
 
 # To generate triples by combining the entity and relation surface forms and rank them
 def reRank_relations(entities,relations,questionWord,questionRelationsNumber,question,k,head_rule):
-    correctRelations=[]
-    sparql = SPARQLWrapper(wikidataSPARQL)
-    for entity_raw in entities:
-        link_found_flag=False
-        for entity in entity_raw:
-            if not link_found_flag:
-                for relation in relations:
-                    relation_wiki="<http://www.wikidata.org/prop/direct/"+relation[1][relation[1].rfind('/')+1:]
-                    sparql.setQuery("""
-                                        ASK WHERE { 
-                                            """+entity[1]+""" """+relation_wiki+""" ?o
-                                        }    
-                                    """)
-                    sparql.setReturnFormat(JSON)
-                    sparql.setMethod(POST)
-                    results1 = sparql.query().convert()
-                    if results1['boolean']:
-                        if head_rule:
-                            targetType=get_question_word_type(questionWord)
-                            if targetType is not None:
-                                if check_relation_range_type(relation[1],targetType) :
+    # NOTE Commented for disabling the reranking as it depends on wikidata
+    if False:
+        correctRelations=[]
+        sparql = SPARQLWrapper(wikidataSPARQL)
+        for entity_raw in entities:
+            link_found_flag=False
+            for entity in entity_raw:
+                if not link_found_flag:
+                    for relation in relations:
+                        relation_wiki="<http://www.wikidata.org/prop/direct/"+relation[1][relation[1].rfind('/')+1:]
+                        sparql.setQuery("""
+                                            ASK WHERE { 
+                                                """+entity[1]+""" """+relation_wiki+""" ?o
+                                            }    
+                                        """)
+                        sparql.setReturnFormat(JSON)
+                        sparql.setMethod(POST)
+                        results1 = sparql.query().convert()
+                        if results1['boolean']:
+                            if head_rule:
+                                targetType=get_question_word_type(questionWord)
+                                if targetType is not None:
+                                    if check_relation_range_type(relation[1],targetType) :
+                                        correctRelations.append(relation)
+                                        entity[3]+=45
+                                        relation[3]+=45
+                                else:
                                     correctRelations.append(relation)
-                                    entity[3]+=45
-                                    relation[3]+=45
-                            else:
-                                correctRelations.append(relation)
-                                entity[3]+=40
-                                relation[3] += 40
-                        else: 
-                            correctRelations.append(relation)
-                            entity[3]+=12
-                            relation[3] += 12
-                        link_found_flag=True
-                        break
-                #############################################################
-                    sparql.setQuery("""
-                        ASK WHERE { 
-                            ?s """+relation_wiki+""" """+entity[1]+"""
-                        }    
-                    """)
-                    sparql.setReturnFormat(JSON)
-                    sparql.setMethod(POST)
-                    results2 = sparql.query().convert()
-                    if results2['boolean']:
-                        if head_rule:
-                            targetType=get_question_word_type(questionWord)
-                            if  targetType is not None :
-                                #rangeType=get_relation_range(relation[1])
-                                
-                                if check_relation_range_type(relation[1],targetType) :
-                                    correctRelations.append(relation)
-                                    entity[3]+=15
-                                    relation[3] += 15
+                                    entity[3]+=40
+                                    relation[3] += 40
                             else:
                                 correctRelations.append(relation)
                                 entity[3]+=12
                                 relation[3] += 12
-                        else: 
-                            correctRelations.append(relation)
-                            entity[3]+=13
-                            relation[3] += 13
-                        #link_found_flag=True
-                        #break
-                #################################################################
+                            link_found_flag=True
+                            break
+                    #############################################################
+                        sparql.setQuery("""
+                            ASK WHERE { 
+                                ?s """+relation_wiki+""" """+entity[1]+"""
+                            }    
+                        """)
+                        sparql.setReturnFormat(JSON)
+                        sparql.setMethod(POST)
+                        results2 = sparql.query().convert()
+                        if results2['boolean']:
+                            if head_rule:
+                                targetType=get_question_word_type(questionWord)
+                                if  targetType is not None :
+                                    #rangeType=get_relation_range(relation[1])
 
-  
+                                    if check_relation_range_type(relation[1],targetType) :
+                                        correctRelations.append(relation)
+                                        entity[3]+=15
+                                        relation[3] += 15
+                                else:
+                                    correctRelations.append(relation)
+                                    entity[3]+=12
+                                    relation[3] += 12
+                            else:
+                                correctRelations.append(relation)
+                                entity[3]+=13
+                                relation[3] += 13
+                            #link_found_flag=True
+                            #break
+                    #################################################################
+
+
     return relations,entities
 
 def distinct_relations(relations):
@@ -288,10 +290,18 @@ def mix_list_items(mixedRelations,k):
     relations=[]
     for raw in mixedRelations:
         if any(relation[3]>0 for relation in raw):
-            for relation in sorted(raw, key=lambda x: (-x[3],int(x[1][x[1].rfind("/")+2:-1]),-x[2]))[:k]:
-                relations.append(relation)
+            # for relation in sorted(raw, key=lambda x: (-x[3],int(x[1][x[1].rfind("/")+2:-1]),-x[2]))[:k]:
+            #     relations.append(relation)
+
+            # Take all top rated if exact match exists, else take top k
+            relations_sorted = sorted(raw, key=lambda x: (-x[3], -x[2], x[1][x[1].rfind("/") + 1:]))
+            score = relations_sorted[0][2]
+            multiplier = relations_sorted[0][3]
+            top_relations = [x for x in relations_sorted if x[2] == score and x[3] == multiplier]
+            relations.extend(top_relations)
         else:
-            raw= sorted(raw, key = lambda x: (-x[2],int(x[1][x[1].rfind("/")+2:-1])))
+            # raw= sorted(raw, key = lambda x: (-x[2],int(x[1][x[1].rfind("/")+2:-1])))
+            raw= sorted(raw, key = lambda x: (-x[2],x[1][x[1].rfind("/")+1:]))
             for relation in raw[:k]:
                 relations.append(relation)
     return relations
@@ -448,15 +458,18 @@ def upper_all_entities(combinations,text):
                 relations.append(token.text)
     for comb in combinations:
         if len(relations)==0:
-            if comb.capitalize() not in final_combinations:
-                final_combinations.append(comb.capitalize())
+            # if comb.capitalize() not in final_combinations:
+            #     final_combinations.append(comb.capitalize())
+            if comb not in final_combinations:
+                final_combinations.append(comb)
         for relation in relations:
             if relation in comb:
                 if comb.lower() not in [x.lower() for x in final_combinations]:
                     final_combinations.append(comb.lower())
                     break 
         if comb.lower() not in [x.lower() for x in final_combinations]:
-            final_combinations.append(comb.capitalize())
+            # final_combinations.append(comb.capitalize())
+            final_combinations.append(comb)
     return final_combinations
 
 # To identify proper nouns as entities
@@ -504,7 +517,9 @@ def merge_comb_det(combinations,text):
             if comb_index==-1:
                 comb_index=token_index(doc,comb.lower())
             if doc[comb_index-1].tag_=="DT":
-                final_combinations.append(doc[comb_index-1].text.capitalize()+" "+comb)
+                # NOTE removed capitalization
+                # final_combinations.append(doc[comb_index-1].text.capitalize()+" "+comb)
+                final_combinations.append(doc[comb_index-1].text+" "+comb)
             else:
                 final_combinations.append(comb)
         else:
@@ -586,8 +601,8 @@ def evaluate(raw,rules,evaluation=True):
                 if term[0].istitle():
                     continue;
     
-                # propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
-                propertyResults = []
+                propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
+                # propertyResults = []
 
                 # Commented to prevent caputalization
                 # e.g. Show me the cafes in Blumenthal => Show me the Cafes in Blumenthal
@@ -626,8 +641,9 @@ def evaluate(raw,rules,evaluation=True):
             if len(term)==0 or len(term) < 3:
                 continue
 
-            if check_entities_in_text(originalQuestion,term):
-                term=term.capitalize()
+            # NOTE Removed capitalization
+            # if check_entities_in_text(originalQuestion,term):
+            #     term=term.capitalize()
             
             entityResults=wiki_search_elastic.entitySearch(term)
             if " and " in term:
@@ -644,8 +660,8 @@ def evaluate(raw,rules,evaluation=True):
                 
         for term in combinations_relations:
             properties=[]
-            # propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
-            propertyResults = []
+            propertyResults=wiki_search_elastic.propertySearch(term) # TODO fix prop search
+            # propertyResults = []
             if len(propertyResults)!=0:
                     propertyResults=[result+[term] for result in propertyResults]
                     properties=properties+propertyResults
@@ -706,8 +722,9 @@ def evaluate(raw,rules,evaluation=True):
     
         count=count+1
         ############        
-        raw.append([[tup[1],tup[4]] for tup in mixedRelations])        
+        # raw.append([[tup[1],tup[4]] for tup in mixedRelations])
         # raw.append([[tup[1],tup[4]] for tup in entities])
+        raw.append(mixedRelations)
         raw.append(entities)
         raw.append(p_entity)
         raw.append(r_entity)
@@ -784,8 +801,8 @@ def search_props_and_entities(q):
     count = 0
     global threading
     threading = False
-    # rules = [1, 2, 3, 4, 5, 8, 9, 10, 12, 13, 14]
-    rules = [1, 2, 5, 8, 9, 10, 12, 13, 14]
+    rules = [1, 2, 3, 4, 5, 8, 9, 10, 12, 13, 14]
+    # rules = [1, 2, 5, 8, 9, 10, 12, 13, 14]
     ans = process_text_E_R(q, rules)
     return ans
 
