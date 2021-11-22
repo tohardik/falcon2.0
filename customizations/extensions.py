@@ -14,6 +14,9 @@ from customizations.sparql.query_helper import get_rdf_types
 nlp = spacy.load('en_core_web_sm')
 es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:9200/'])
 
+# TODO
+# 1 remove classes based on substring
+# 2 remove candidates based on length > 3 or number regex
 
 def process_input(question):
     classes = process_text_C(question)
