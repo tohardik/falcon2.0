@@ -32,6 +32,11 @@ def process_input(question):
     linked_relations = [LinkedCandidate.from_value_array(x) for x in relations]
     linked_entities = [LinkedCandidate.from_value_array(x) for x in entities]
 
+    # mark start and end of search term in the question
+    linked_classes = [mark_start_end_index(question, x) for x in linked_classes if x.levensteinDistance < 4]
+    linked_relations = [mark_start_end_index(question, x) for x in linked_relations if x.levensteinDistance < 4]
+    linked_entities = [mark_start_end_index(question, x) for x in linked_entities if x.levensteinDistance < 4]
+
     # Remove relations for which the search term has already given a class link
     class_search_terms = []
     for class_link in linked_classes:
@@ -39,11 +44,6 @@ def process_input(question):
         class_search_terms.extend(split)
     linked_relations = [relation_link for relation_link in linked_relations if
                         relation_link.searchTerm not in class_search_terms]
-
-    # mark start and end of search term in the question
-    linked_classes = [mark_start_end_index(question, x) for x in linked_classes if x.levensteinDistance < 4]
-    linked_relations = [mark_start_end_index(question, x) for x in linked_relations if x.levensteinDistance < 4]
-    linked_entities = [mark_start_end_index(question, x) for x in linked_entities if x.levensteinDistance < 4]
 
     # add types for entities
     entity_uris = [x.uri for x in linked_entities]
