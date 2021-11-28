@@ -1,0 +1,2315 @@
+{
+  "dataset": {
+    "id": "quantDataset_756"
+  },
+  "questions": [
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "756",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1114209> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/DrivingSchool> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Are there any driving schools in Blumenthal?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": false,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "862",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1086527> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Stadium> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Burglesum have a stadium?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "860",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way369444221> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way444754426> geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfCrosses(?aWKT, ?tWKT) as ?crosses) FILTER (?crosses) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Delmestraße cross Pappelstraße?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "856",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way274867842> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Does Lockstromleitung pass through any park?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "788",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK { <http://linkedgeodata.org/triplify/relation1128466> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/relation1137744> geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Does the district Hemelingen border Obervieland?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "5"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "840",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(?target) AS ?cnt) WHERE { <http://linkedgeodata.org/triplify/node1758684431> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Supermarket> . ?tGeom geo:asWKT ?tWKT . BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many Supermarkets are less than 500 meters from Theatergarten?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "3"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "764",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT (COUNT(?target) AS ?count) WHERE { <http://linkedgeodata.org/triplify/relation62718> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Castle> . ?tGeom geo:asWKT ?tWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many castles does Bremen have?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "6"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "776",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT (DISTINCT ?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation1100344> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/BuildingChurch> . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many churches does Vegesack have?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "2"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "822",
+      "onlydbo": false,
+      "query": {
+        "sparql": "SELECT (COUNT(DISTINCT ?a) as ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Cycleway> ; <http://linkedgeodata.org/ontology/width> ?w . FILTER (?w > 4) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many cycling paths have more than 4m width?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "6"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "858",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?target) AS ?count) WHERE { <http://linkedgeodata.org/triplify/relation3091224> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Farmland> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfCrosses(?aWKT, ?tWKT) as ?crosses) FILTER (?crosses) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many farmlands does Arberger Kanal cross?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "4"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "852",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation3809232> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Forest> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many forests does Hollerfleet cross?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "1"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "766",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT (count(?target) as ?count) WHERE { <http://linkedgeodata.org/triplify/relation1112324> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Kindergarten> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many kindergartens are there in Schönebeck?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "5"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "870",
+      "onlydbo": false,
+      "query": {
+        "sparql": "SELECT (COUNT(DISTINCT ?a) AS ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Parking> ; <http://linkedgeodata.org/capacity> ?c FILTER ( ?c > 1000 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many parkings have greater than 1000 capacity?"
+        }
+      ]
+    },
+    {
+      "aggregation": true,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "c"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "c": {
+                  "type": "literal",
+                  "value": "17"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "number",
+      "hybrid": false,
+      "id": "786",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT (COUNT(DISTINCT ?a) as ?count) WHERE { ?a a <http://linkedgeodata.org/ontology/Playground> ; geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/School> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?aWKT, ?tWKT) AS ?touches) FILTER ( ?touches ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "How many playgrounds are adjacent to a school?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "866",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way205637330> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?tWKT, ?aWKT) AS ?touches) FILTER ( ?touches ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Bürgerhain forest adjacent to a park?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "770",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1112215> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/node2904805463> <http://www.opengis.net/ont/geosparql#hasGeometry> ?targetGeom . ?targetGeom geo:asWKT ?targetWKT . BIND(geof:sfContains(?aWKT,?targetWKT) AS ?contains) FILTER (?contains) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Friedehorst bus stop located in Losum?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "772",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/relation1114270> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way515838313> <http://www.opengis.net/ont/geosparql#hasGeometry> ?targetGeom . ?targetGeom geo:asWKT ?targetWKT . BIND(geof:sfContains(?aWKT,?targetWKT) AS ?contains) FILTER (?contains) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Is Weserhäuser part of Überseestadt?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "boolean": true,
+          "head": {},
+          "results": {}
+        }
+      ],
+      "answertype": "boolean",
+      "hybrid": false,
+      "id": "838",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> ASK WHERE { <http://linkedgeodata.org/triplify/way493713773> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/BicycleParking> . ?tGeom geo:asWKT ?tWKT . BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT,?tWKT) ) FILTER ( ?distance < 200 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Is there any bicycle parking in a range of 200 m from Knochenhauerstraße?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "target"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation272130"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69347567"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way69347566"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23323035"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way16777474"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way16777476"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way24721911"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation3817060"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation7366560"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "848",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126018> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Canal> . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( !sameTerm(?aWKT,?tWKT) ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "List the canals that cross Blockland."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197309302"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950497"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197517192"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950500"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way34561550"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way199424202"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950503"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way199424204"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950491"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way198950492"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way186651714"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way287276794"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "844",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> #List the forests near Woltmershausen. SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1136072> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Forest> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY ASC(?target)"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "List the forests near Woltmershausen."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node294725972"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node835786202"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4126774998"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node292381850"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3085342538"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295080752"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node298165531"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node298165536"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node583309199"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "768",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1086527> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Pharmacy> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "List the pharmacies in Burglesum."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way127836738"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "846",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way27556946> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Airport> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 15000 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the airports at most 15 km from Golf-Club Oberneuland."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2763115641"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node851030420"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way430870491"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1568517026"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295582058"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1996756983"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1920412234"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way321564262"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way373751784"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "758",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126105> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?target a <http://linkedgeodata.org/ontology/Bakery> . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the bakeries in Findorff."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1141391798"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "808",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BicycleParking> . ?target <http://linkedgeodata.org/capacity> ?c . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1127350> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?c) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the bicycle parking in Mitte with highest capacity."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1637892551"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node718963549"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233653"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4457440087"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1751658719"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5091566565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534773"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way374869047"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534777"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2121370051"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node699745139"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4344101264"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6590939585"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node410456715"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2467927693"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node287963386"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2621251955"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node699745133"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233648"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2741023476"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1758660497"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node612106994"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node1759426452"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node458473002"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4440627425"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node410449765"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node412299688"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node576515274"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3820185057"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5118564397"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node767285163"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3281269054"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "834",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?f WHERE { <http://linkedgeodata.org/triplify/node2073742751> geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?f geo:hasGeometry ?fGeom ; a <http://linkedgeodata.org/ontology/Cafe> . ?fGeom geo:asWKT ?fWKT . BIND(geof:distance(?cWKT, ?fWKT, uom:metre) AS ?distance) FILTER ( ! sameTerm(?fWKT, ?cWKT) ) FILTER ( ?distance < 500 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Show me the cafes within 500 meters of Martinistraße bus stop."
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2142764228"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4627358788"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node576510508"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172680184"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2283633912"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3916325102"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node571268989"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172680187"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582613"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node4695534779"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5695526298"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2172693921"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2752194415"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2464556903"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6426665285"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3185144511"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582611"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node6188040644"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2462233705"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node295276006"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5209373383"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node571268986"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2249582507"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2178907363"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2178907360"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2286232985"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2213489580"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2401681927"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node667676694"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node708921439"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node3772681617"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "836",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/node828163472> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Atm> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT,?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY (?distance)"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which ATMs are close to Dom-Museum?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "target"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943520"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1128667"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1128669"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943368"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1127348"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1127350"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130739"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130741"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130743"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1945178"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1945182"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1126018"
+                }
+              },
+              {
+                "target": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1130808"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "864",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1126105> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Suburb> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfTouches(?aWKT, ?tWKT) AS ?touches) FILTER ( ?touches ) FILTER ( !sameTerm(?aWKT, ?tWKT) ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which suburbs border Findorff?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1137601"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way70576514"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1137602"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943368"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1943540"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1114270"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135976"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135977"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/relation1135978"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "802",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> #Which administrative boundaries border Woltmershausen and Neustadt? SELECT DISTINCT ?target { <http://linkedgeodata.org/triplify/relation1136070> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/AdministrativeBoundary> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1136702> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND ( geof:sfTouches(?aWKT, ?tWKT) as ?touches1) BIND ( geof:sfTouches(?bWKT, ?tWKT) as ?touches2) FILTER (?touches1 && ?touches2) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which administrative boundaries border Woltmershausen and Neustadt?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way155251676>"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way89995724>"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "<http://linkedgeodata.org/triplify/way23588199>"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "824",
+      "onlydbo": false,
+      "query": {
+        "sparql": "SELECT DISTINCT ?a WHERE { ?a a <http://linkedgeodata.org/ontology/ApartmentBuilding> ; <http://linkedgeodata.org/ontology/height> ?h . FILTER (?h > 50) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which apartment blocks have more than 50m height?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way202315995"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way59209062"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way376296526"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way376296525"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "854",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way221543559> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Bridge> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which bridges cross Habenhauser Landwehr stream?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way229565750"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way227222779"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "792",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT distinct ?target WHERE { <http://linkedgeodata.org/triplify/relation1130741> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Ditch> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1126105> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND (geof:sfContains(?bWKT, ?tWKT) as ?contains) BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches && ?contains && !sameTerm(?bWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which canals of Findorff border Schwachhausen?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way4290397"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "868",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stadium> ; <http://linkedgeodata.org/capacity> ?h ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128426> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT BIND(geof:sfContains(?aWKT, ?tWKT) AS ?contains) FILTER ( ?contains && ( ! sameTerm(?aWKT, ?tWKT) ) ) } ORDER BY DESC(?h) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the biggest stadium in Peterswerder?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node319576625"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "842",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/way308668376> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/BusStop> . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT) ) FILTER ( ?distance < 500 ) } ORDER BY ASC(?distance) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the closest bus stop to Mozartstraße?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way373751685"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "826",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?f WHERE { <http://linkedgeodata.org/triplify/way369157724> geo:hasGeometry ?cGeom . ?cGeom geo:asWKT ?cWKT . ?f a <http://linkedgeodata.org/ontology/Cafe> ; geo:hasGeometry ?fGeom . ?fGeom geo:asWKT ?fWKT BIND(geof:distance(?cWKT, ?fWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?fWKT, ?cWKT) ) FILTER ( ?distance < 1500 ) } ORDER BY (?distance) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the closest cafe from Nelson Mandela Park?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way180846761"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "806",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BuildingChurch> . ?target <http://linkedgeodata.org/ontology/height> ?h . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation62718> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?h) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the highest church in Bremen?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way230597256"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "810",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/BicycleParking> . ?target <http://linkedgeodata.org/capacity> ?h . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128667> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?h) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the largest bicycle parking in Horn-Lehe?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way232445088"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "812",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stadium> . ?target <http://linkedgeodata.org/capacity> ?c . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1128426> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY ASC (?c) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the smallest stadium in Peterswerder?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way305925972"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "814",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Footway> . ?target <http://linkedgeodata.org/ontology/width> ?w . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1127349> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . BIND (geof:sfContains(?aWKT, ?tWKT) as ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) } ORDER BY DESC (?w) LIMIT 1"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which is the widest footpath in Altstadt?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way167637880"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "790",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target { <http://linkedgeodata.org/triplify/way167637877> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> . ?target geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND ( geof:sfTouches(?tWKT, ?aWKT) as ?touches) FILTER (?touches) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which park borders Muhles Park?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way226308168"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23189841"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way226307824"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way67447534"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way33645355"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way23189819"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way197097002"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "830",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/node26739831> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target geo:hasGeometry ?tGeom ; a <http://linkedgeodata.org/ontology/Parking> . ?target <http://linkedgeodata.org/capacity> ?cap . ?tGeom geo:asWKT ?tWKT BIND(geof:distance(?aWKT, ?tWKT, uom:metre) AS ?distance) FILTER ( !sameTerm(?aWKT, ?tWKT)) FILTER ( ?distance < 2000 ) FILTER ( ?cap > 500 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which parkings within 2 km of Hohentor have capacity more than 500?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way358860138"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way301416779"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way450214511"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "850",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation4006535> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Park> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT BIND(geof:sfCrosses(?aWKT, ?tWKT) AS ?crosses) FILTER ( ?crosses ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which parks does the Ihle stream cross?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825213664"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way570773014"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node252993546"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node5761998007"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node659955302"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825527565"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node664693371"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825271158"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825222024"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node825492310"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "774",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/> PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { <http://linkedgeodata.org/triplify/relation1125640> <http://www.opengis.net/ont/geosparql#hasGeometry> ?aGeom . ?aGeom geo:asWKT ?aWKT . ?target a <http://linkedgeodata.org/ontology/Restaurant> . ?target <http://www.opengis.net/ont/geosparql#hasGeometry> ?tGeom . ?tGeom geo:asWKT ?tWKT . BIND(geof:sfContains(?aWKT,?tWKT) AS ?contains) FILTER (?contains && !sameTerm(?aWKT,?tWKT)) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which restaurants are in Gröpelingen?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/way204782278"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "828",
+      "onlydbo": false,
+      "query": {
+        "sparql": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT DISTINCT ?target WHERE { ?target a <http://linkedgeodata.org/ontology/Stream> ; geo:hasGeometry ?tGeom . ?tGeom geo:asWKT ?tWKT . <http://linkedgeodata.org/triplify/relation1140666> geo:hasGeometry ?aGeom . ?aGeom geo:asWKT ?aWKT . <http://linkedgeodata.org/triplify/way169460956> geo:hasGeometry ?bGeom . ?bGeom geo:asWKT ?bWKT . BIND(geof:sfCrosses(?tWKT, ?aWKT) AS ?crosses) BIND(geof:sfTouches(?tWKT, ?bWKT) AS ?touches) FILTER ( ?crosses && ?touches) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which stream passes through Jedutenberg and borders Stadtwald Ahnthammsmoor?"
+        }
+      ]
+    },
+    {
+      "aggregation": false,
+      "answers": [
+        {
+          "head": {
+            "vars": [
+              "uri"
+            ]
+          },
+          "results": {
+            "bindings": [
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node2147118476"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253042643"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253042610"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node60453604"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node26735307"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node26739851"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node169639811"
+                }
+              },
+              {
+                "uri": {
+                  "type": "uri",
+                  "value": "http://linkedgeodata.org/triplify/node253045601"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answertype": "resource",
+      "hybrid": false,
+      "id": "820",
+      "onlydbo": false,
+      "query": {
+        "sparql": "SELECT DISTINCT ?a WHERE { ?a a <http://linkedgeodata.org/ontology/Suburb> ; <http://linkedgeodata.org/population> ?population FILTER ( ?population > 30000 ) }"
+      },
+      "question": [
+        {
+          "language": "en",
+          "string": "Which suburbs have more than 30000 population?"
+        }
+      ]
+    }
+  ]
+}
