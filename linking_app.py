@@ -21,9 +21,11 @@ def linking():
     if request.method == "POST":
         input_text = request.form.get('input_text')
         ablation_flag = request.form.get('ablation') is not None
+        approach = request.form.get('approach')
     else:
         input_text = request.args.get('input_text')
         ablation_flag = request.args.get('ablation') is not None
+        approach = request.form.get('approach')
 
     if input_text is None:
         LOG.error("/perform-linking,  Invalid parameters provided")
@@ -37,7 +39,7 @@ def linking():
             else:
                 print("ABLATION FLAT SET BUT LINKS NOT FOUND")
 
-        linking_result = process_input(input_text)
+        linking_result = process_input(input_text, approach)
         return jsonify(linking_result.to_dict())
 
 

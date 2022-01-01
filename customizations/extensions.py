@@ -6,7 +6,7 @@ import spacy
 from elasticsearch import Elasticsearch
 
 from customizations.constants import CLASS_INDEX, RELATION_INDEX
-from main import search_props_and_entities
+from main import search_props_and_entities, custom_entity_linking_approach
 from customizations.model.core import LinkedCandidate
 from customizations.model.core import LinkingResponse
 from customizations.sparql.query_helper import get_rdf_types
@@ -18,10 +18,21 @@ es = Elasticsearch(hosts=['http://geo-qa.cs.upb.de:9200/'])
 # 1 remove classes based on substring
 # 2 remove candidates based on length > 3 or number regex
 
-def process_input(question):
-    classes = process_text_C(question)
-    entities, relations = search_props_and_entities(question)
-    relations = process_text_R(question)
+# approach = falcon/custom
+def process_input(question, approach):
+
+    if approach == "falcon":
+        classes = process_text_C(question)
+        entities, relations = search_props_and_entities(question)
+        relations = process_text_R(question)
+    elif approach == "custom":
+        classes = process_text_C(question)
+        relations = process_text_R(question)
+        entities = custom_entity_linking_approach(question)
+    else:
+        classes = process_text_C(question)
+        relations = process_text_R(question)
+        entities = custom_entity_linking_approach(question)
 
     # set searchTerm as originalTerm for entities and relations
     for e in entities:
@@ -185,30 +196,3 @@ def read_benchmark_questions():
         for question in questions_json:
             questions_list.append(question["question"][0]["string"])
         return questions_list
-
-
-if __name__ == "__main__":
-    # "/home/hardik/Projects/falcon2.0/customizations/lgdo_2014-07-26.n3"
-    questions_list = read_benchmark_questions()
-
-    for q in questions_list:
-        # print(q)
-
-        # Find classes
-        # classes = process_text_C(q)
-        # for result in classes:
-        #     print(result)
-
-        # Find entities
-        # entities = search_props_and_entities(q)
-        # for e in entities[0]:
-        #     print(e)
-
-        linking_response = process_input(q)
-        print(linking_response.input_str)
-        print([f"{x.searchTerm}{x.startIndex}={x.label}" for x in linking_response.linkedClasses])
-        print([f"{x.searchTerm}{x.startIndex}={x.label}" for x in linking_response.linkedRelations])
-        print([f"{x.searchTerm}{x.startIndex}={x.label}" for x in linking_response.linkedEntities])
-
-        print()
-        # break
